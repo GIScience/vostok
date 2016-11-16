@@ -63,6 +63,7 @@ If the .sol file is adjusted and the input files are provided, run VOSTOK via
     vostok.exe example.sol
 
 The tool will first generate a .vostokmeta file and then run the solar potential calculation. On your screen, somethin like the following messages should appear:
+
     ------------------------------------------------------
     Shadow points file path:      example.xyz
     Query points file path:       example.xyz
