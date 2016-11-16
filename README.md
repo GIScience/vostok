@@ -60,6 +60,7 @@ The second file (line 2) corresponds to the points for which the solar potential
     80.250000 344.250000 40.956001 -0.187723 -0.375608 0.907568
     
 If the .sol file is adjusted and the input files are provided, run VOSTOK via
+
     vostok.exe example.sol
 
 The tool will first generate a .vostokmeta file and then run the solar potential calculation. On your screen, somethin like the following messages should appear:
