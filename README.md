@@ -51,10 +51,13 @@ The meaning of each line entry is as follows:
 The input file (line 1) contains the points which are used for shadowing the scene.
 
 The second file (line 2) corresponds to the points for which the solar potential is calculated. The file must contain xyz coordinates and normals nxnynz, each in subsequent columns seperated by blanks. Example with four points:
+
+    ------------------------------------------------------
     78.750000 344.250000 40.615002 0.114376 0.220988 0.968547
     79.250000 344.250000 40.542000 0.063874 0.249720 0.966209
     79.750000 344.250000 40.520000 -0.196111 -0.040646 0.979739
     80.250000 344.250000 40.956001 -0.187723 -0.375608 0.907568
+    ------------------------------------------------------
 
 If the .sol file is adjusted and the input files are provided, run VOSTOK via
     vostok.exe example.sol
