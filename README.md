@@ -14,7 +14,7 @@ To build VOSTOK with one of the two configurations, open your command prompt and
 
 ## Running VOSTOK
 
-To run VOSTOK, you need to provide a .sol file containing information about the input files, the location of the scene, the time period for which the solar potential shall be calculate, etc.
+To run VOSTOK, you need to provide a .sol file containing information about the input files, the location of the scene, the time period for which the solar potential shall be calculated, etc.
 
 An exemplary .sol file looks like this:
 
