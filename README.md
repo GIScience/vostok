@@ -128,4 +128,4 @@ The tool will first generate a .vostokmeta file and then run the solar potential
     Day  30   Sunrise: 07:32   Sunset:  16:45
     Day  31   Sunrise: 07:31   Sunset:  16:47
 
-The resulting file will contain the initial xyz coordinates, the nxnynz normals, and a new column with the calculated solar potential in Watts per square meter, summed up for the respective point over the given time span.
+The resulting file will contain the initial xyz coordinates, the nxnynz normals, and a new column with the calculated solar potential in Watt hours per square meter and day, summed up for the respective point.
