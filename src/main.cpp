@@ -146,7 +146,7 @@ int main(int argc, char* argv[]) {
 				minuteStepIrradiance.resize(queryPointsCache.size(), 0);
 
 				#pragma omp parallel for
-				for (unsigned int ii = 0; ii < queryPointsCache.size(); ii++) {
+				for (int ii = 0; ii < queryPointsCache.size(); ii++) {
 					std::vector<double>& p = queryPointsCache[ii];
 
 					bool illuminated = true;
