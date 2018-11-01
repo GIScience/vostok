@@ -12,6 +12,8 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O3 -g -DNDEBUG -Wall")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG -Wall")
 set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g3 -Wall")
 
+add_definitions( -std=c++0x -m64)
+
 # Define vostok executable ###################
 set(header_files
   src/IrradianceCalc.h
