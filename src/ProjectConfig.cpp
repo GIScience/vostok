@@ -6,6 +6,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include "myUtils.h"
 
 ProjectConfig::ProjectConfig() {
 
@@ -32,49 +33,49 @@ bool ProjectConfig::loadFromFile(std::string filePath) {
 		return false;
 	}
 
-	getline(projectFile, mShadowPointsFilePath);
-	getline(projectFile, mShadowPointsInputFormat);
+	safeGetline(projectFile, mShadowPointsFilePath);
+	safeGetline(projectFile, mShadowPointsInputFormat);
 
 
-	getline(projectFile, mQueryPointsFilePath);
-	getline(projectFile, mQueryPointsInputFormat);
+	safeGetline(projectFile, mQueryPointsFilePath);
+	safeGetline(projectFile, mQueryPointsInputFormat);
 
 	std::string temp = "";
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	mVoxelSize = atof(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_lat = atof(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_lon = atof(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_timezone = atoi(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_year = atoi(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_dayStart = atoi(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_dayEnd = atoi(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_dayStep = atoi(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_minuteStep = atoi(temp.c_str());
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_computeShadows = atoi(temp.c_str());
 
-	getline(projectFile, mOutputFilePath);
+	safeGetline(projectFile, mOutputFilePath);
 
 
-	getline(projectFile, temp);
+	safeGetline(projectFile, temp);
 	m_openMp = atoi(temp.c_str());
 
 
