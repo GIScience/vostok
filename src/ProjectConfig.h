@@ -23,6 +23,8 @@ public:
 	std::string mOutputFilePath;
 	std::string mQueryPointsFilePath;
 	std::string mProj4string_input;
+	std::string mShadowPointsInputFormat;
+	std::string mQueryPointsInputFormat;
 
 	// Day and minute step lengths:
 	int m_dayStart;

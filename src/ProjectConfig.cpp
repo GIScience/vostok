@@ -23,7 +23,6 @@ ProjectConfig::ProjectConfig() {
 }
 
 ProjectConfig::~ProjectConfig() {
-	// TODO Auto-generated destructor stub
 }
 
 bool ProjectConfig::loadFromFile(std::string filePath) {
@@ -34,7 +33,11 @@ bool ProjectConfig::loadFromFile(std::string filePath) {
 	}
 
 	getline(projectFile, mShadowPointsFilePath);
+	getline(projectFile, mShadowPointsInputFormat);
+
+
 	getline(projectFile, mQueryPointsFilePath);
+	getline(projectFile, mQueryPointsInputFormat);
 
 	std::string temp = "";
 
@@ -89,7 +92,9 @@ std::string ProjectConfig::getSettingsString() {
 
 	convert << "------------------------------------------------------" << std::endl;
 	convert << "Shadow points file path:      " << mShadowPointsFilePath << std::endl;
+	convert << "Shadow points input format:   " << mShadowPointsInputFormat << std::endl;
 	convert << "Query points file path:       " << mQueryPointsFilePath << std::endl;
+	convert << "Query points input format:    " << mQueryPointsInputFormat << std::endl;
 	convert << "Output file(s) path:          " << mOutputFilePath << std::endl;
 	convert << "Use Multithreading:           " << m_openMp << std::endl;
 	convert << std::endl;

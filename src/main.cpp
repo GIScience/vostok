@@ -35,14 +35,16 @@ int main(int argc, char* argv[]) {
 	//######### END Load project settings #########
 
 	//###################### BEGIN Load query and shadow point clouds #######################
-	SimpleTextPointCloud queryPoints = SimpleTextPointCloud(cfg.mQueryPointsFilePath, "x y z nx ny nz");
+	//SimpleTextPointCloud queryPoints = SimpleTextPointCloud(cfg.mQueryPointsFilePath, "x y z nx ny nz");
+	SimpleTextPointCloud queryPoints = SimpleTextPointCloud(cfg.mQueryPointsFilePath, cfg.mQueryPointsInputFormat);
 
 	if (!queryPoints.sourceFileGood()) {
 		std::cout << "ERROR: Failed to open query point cloud" << std::endl;
 		return -1;
 	}
 
-	SimpleTextPointCloud shadowPoints = SimpleTextPointCloud(cfg.mShadowPointsFilePath, "x y z nx ny nz");
+	//SimpleTextPointCloud shadowPoints = SimpleTextPointCloud(cfg.mShadowPointsFilePath, "x y z nx ny nz");
+	SimpleTextPointCloud shadowPoints = SimpleTextPointCloud(cfg.mShadowPointsFilePath, cfg.mShadowPointsInputFormat);
 
 	if (!shadowPoints.sourceFileGood()) {
 		std::cout << "ERROR: Failed to open shadow point cloud" << std::endl;
