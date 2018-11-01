@@ -27,6 +27,7 @@ public:
 	virtual ~SimpleTextPointCloud();
 	virtual bool endOfCloud();
 	virtual std::vector<double> getNextPoint();
+	unsigned int getNumPoints();
 	virtual void resetCursor();
 	bool sourceFileGood();
 

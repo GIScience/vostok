@@ -140,6 +140,10 @@ int main(int argc, char* argv[]) {
 			// Prepare vector for irradiation for all points over current minute step:
 			std::vector<double> minuteStepIrradiance;
 
+			// TODO: Simplify this by unifying OpenMP and Non-OpenMP versions. 
+			// The only real difference could be the OpenMP pragma after all.
+			// sbecht 2018-11-01
+			
 			if (cfg.m_openMp == 1 && cfg.m_computeShadows < 2) {
 
 				//##################### BEGIN OpenMP-parallelized version ######################
@@ -193,6 +197,7 @@ int main(int argc, char* argv[]) {
 					double irr = irrCalc.getIrradiance(p, illuminated);
 
 					minuteStepIrradiance.push_back(irr);
+
 				}
 				//##################### END Single-threaded version ######################
 			}

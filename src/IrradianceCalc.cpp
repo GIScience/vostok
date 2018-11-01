@@ -49,6 +49,7 @@ IrradianceCalc::~IrradianceCalc() {
 
 double IrradianceCalc::getIrradiance(const std::vector<double>& p, bool illuminated) {
 
+	// TODO: Don't hard-code array indices for the normal vector. Make this user-configurable!
 	Vec3d normal(p[3], p[4], p[5]);
 
 	double aspect = getAspect(normal);

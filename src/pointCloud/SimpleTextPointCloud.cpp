@@ -56,8 +56,6 @@ SimpleTextPointCloud::SimpleTextPointCloud(std::string filePath, std::string pat
 }
 
 SimpleTextPointCloud::~SimpleTextPointCloud() {
-	// TODO Auto-generated destructor stub
-
 }
 
 void SimpleTextPointCloud::updateMetaFile() {
@@ -151,6 +149,10 @@ std::vector<double> SimpleTextPointCloud::getNextPoint() {
 	++mCursorPos;
 
 	return result;
+}
+
+unsigned int SimpleTextPointCloud::getNumPoints() {
+	return mNumPoints;
 }
 
 void SimpleTextPointCloud::resetCursor() {

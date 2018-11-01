@@ -28,6 +28,8 @@ public:
 	std::vector<double> getMin() { return mMin; };
 	std::vector<double> getMax() { return mMax; };
 
+	virtual unsigned int getNumPoints() = 0;
+
 protected:
 
 	std::vector<std::string> mFieldNames;
