@@ -26,7 +26,9 @@ To run VOSTOK, you need to provide a .sol file containing information about the 
 An `example.sol` file:
 
     example.xyz
+    x y z nx ny nz
     example.xyz
+    x y z nx ny nz
     1.0
     48.0
     16.0
@@ -43,23 +45,29 @@ An `example.sol` file:
 The meaning of each line entry is as follows:
 
     line 1	File with points used for shadowing
-    line 2	Point cloud for solar pot. calculation
-    line 3	Voxel size for shadow voxels
-    line 4	Latitude of scene in deci degrees
-    line 5	Longitude of scene in deci degrees
-    line 6	Time zone
-    line 7	Year of calculation
-    line 8	First day of calculation
-    line 9	Last day of calculation
-    line 10	Day step
-    line 11	Minutes step
-    line 12	Enable shadowing
-    line 13	Output file name
-    line 14	Enable multi threading
+    line 2  line format of shadow point cloud input file
+    line 3	Point cloud for solar pot. calculation
+    line 4  line format of query point cloud input file
+    line 5	Voxel size for shadow voxels
+    line 6	Latitude of scene in deci degrees
+    line 7	Longitude of scene in deci degrees
+    line 8	Time zone
+    line 9	Year of calculation
+    line 10	First day of calculation
+    line 11	Last day of calculation
+    line 12	Day step
+    line 13	Minutes step
+    line 14	Enable shadowing
+    line 15	Output file name
+    line 16	Enable multi threading
 
 The input file (line 1) contains the points which are used for shadowing the scene.
 
-The second file (line 2) corresponds to the points for which the solar potential is calculated. The file must contain xyz coordinates and normals nxnynz, each in subsequent columns seperated by blanks.
+The second file (line 3) corresponds to the points for which the solar potential is calculated. The file must contain xyz coordinates and normals nxnynz, each in subsequent columns seperated by blanks.
+
+Please not the following restrictions regarding the shadow and query point cloud input file formats:
+
+1.) Although you can specify the line formats of the input files, the indices of the individual values for point position and normal vector are still *fixed* in the current version of VOSTOK. This means that *the first three values (position 1 to 3) will always be interpreted as POSITION and the following three values (position 4 to 6) will always be inrepreted as the NORMAL VECTOR*.
 
 `example.xyz` file with four points:
 
@@ -76,7 +84,9 @@ The tool will first generate a .vostokmeta file and then run the solar potential
 
     ------------------------------------------------------
     Shadow points file path:      example.xyz
+    Shadow points input format:   x y z nx ny nz
     Query points file path:       example.xyz
+    Query points input format:    x y z nx ny nz
     Output file(s) path:          example_solPot_January2016.xyz
     Use Multithreading:           1
 
