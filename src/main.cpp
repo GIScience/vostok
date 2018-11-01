@@ -32,6 +32,9 @@ int main(int argc, char* argv[]) {
 		std::cout << "ERROR: Failed to load project settings file." << std::endl;
 		return -1;
 	}
+
+	std::cout << cfg.getSettingsString() << std::endl << std::endl;
+
 	//######### END Load project settings #########
 
 	//###################### BEGIN Load query and shadow point clouds #######################

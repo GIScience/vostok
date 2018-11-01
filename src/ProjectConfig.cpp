@@ -2,10 +2,11 @@
 
 #include <cmath>
 #include <cstdlib>
-#include <string>
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <string>
+
 #include "myUtils.h"
 
 ProjectConfig::ProjectConfig() {
@@ -26,8 +27,11 @@ ProjectConfig::ProjectConfig() {
 ProjectConfig::~ProjectConfig() {
 }
 
-bool ProjectConfig::loadFromFile(std::string filePath) {
-	std::ifstream projectFile(filePath.c_str());
+bool ProjectConfig::loadFromFile(std::string projectFilePath) {
+
+	std::string projectFileFolderPath = projectFilePath.substr(0, projectFilePath.find_last_of("\\/"));
+
+	std::ifstream projectFile(projectFilePath.c_str());
 
 	if (!projectFile.good()) {
 		return false;
@@ -39,6 +43,8 @@ bool ProjectConfig::loadFromFile(std::string filePath) {
 
 	safeGetline(projectFile, mQueryPointsFilePath);
 	safeGetline(projectFile, mQueryPointsInputFormat);
+
+
 
 	std::string temp = "";
 
@@ -79,7 +85,12 @@ bool ProjectConfig::loadFromFile(std::string filePath) {
 	m_openMp = atoi(temp.c_str());
 
 
-	std::cout << getSettingsString() << std::endl << std::endl;
+	if (projectFileFolderPath != projectFilePath) {
+		mShadowPointsFilePath = projectFileFolderPath + "/" + mShadowPointsFilePath;
+		mQueryPointsFilePath = projectFileFolderPath + "/" + mQueryPointsFilePath;
+		mOutputFilePath = projectFileFolderPath + "/" + mOutputFilePath;
+	}
+
 
 	return true;
 }

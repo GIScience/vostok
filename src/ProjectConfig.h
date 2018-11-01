@@ -19,9 +19,12 @@ public:
 	bool loadFromFile(std::string filePath);
 
 	double mVoxelSize;
+
 	std::string mShadowPointsFilePath;
 	std::string mOutputFilePath;
 	std::string mQueryPointsFilePath;
+
+
 	std::string mProj4string_input;
 	std::string mShadowPointsInputFormat;
 	std::string mQueryPointsInputFormat;
