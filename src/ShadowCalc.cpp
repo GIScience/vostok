@@ -108,7 +108,7 @@ bool ShadowCalc::computeShadow(const posdata& solposData, const std::vector<doub
 		rayDirX = 0;
 		rayDirY = 0;
 
-		std::cout << "parallele strahlen!" << std::endl;
+		std::cout << "Parallele Strahlen!" << std::endl;
 	}
 
 	// Create light direction vector and make it short:
@@ -117,7 +117,7 @@ bool ShadowCalc::computeShadow(const posdata& solposData, const std::vector<doub
 	// TODO 3: Is this fixed length okay for all voxel sizes?
 	rayDir = rayDir.normalize() * 0.001;
 
-	// TODO 3: Das ist alles komisch hier. Kann mit neuem Raycasting wohl start vereinfacht werden
+	// TODO 3: Das ist alles komisch hier. Kann mit neuem Raycasting wohl stark vereinfacht werden
 
 	//############################### END Generate light direction vector #################################
 
@@ -159,18 +159,11 @@ bool ShadowCalc::computeShadow(const posdata& solposData, const std::vector<doub
 	Vec3d origin = v + rayStartOffset;
 	std::vector<OctreeNodeInfo> touchedVoxels = raycast(origin, rayDir);
 
-
-
 	return (touchedVoxels.size() == 0);
 }
 
 
 std::vector<OctreeNodeInfo> ShadowCalc::raycast(Vec3d& rayStart, Vec3d& rayDir) {
-
-
-	//OctreeRaycaster orc(&m_octree);
-	//orc.raycast(rayStart, rayDir);
-
 
 	std::vector<OctreeNodeInfo> touchedVoxels;
 
@@ -222,8 +215,6 @@ std::vector<OctreeNodeInfo> ShadowCalc::raycast(Vec3d& rayStart, Vec3d& rayDir) 
 			 */
 
 			rayStart = node.getFarIntersection(rayStart, rayDir) + (rayDir * 0.001);
-
-
 
 			stack.pop();
 
