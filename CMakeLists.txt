@@ -32,6 +32,7 @@ set(header_files
 
 set(source_files
   src/main.cpp
+  src/myUtils.cpp
   src/IrradianceCalc.cpp
   src/OctreeRaycaster.cpp
   src/ProjectConfig.cpp
