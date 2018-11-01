@@ -266,8 +266,16 @@ int main(int argc, char* argv[]) {
 	while (!queryPoints.endOfCloud()) {
 
 		std::vector<double> p = queryPoints.getNextPoint();
-		outfile << std::fixed << p[0] << " " << std::fixed << p[1] << " " << std::fixed << p[2] << " " << std::fixed << p[3] << " " << std::fixed << p[4] << " " << std::fixed
-				<< p[5] << " " << std::fixed << totalIrradiation[index] << std::endl;
+
+		for (int ii = 0; ii < p.size(); ii++) {
+			outfile << std::fixed << p[ii] << " ";
+		}
+	
+		// Replaced by loop above:
+		//outfile << std::fixed << p[0] << " " << std::fixed << p[1] << " " << std::fixed << p[2] << " " << std::fixed << p[3] << " " << std::fixed << p[4] << " " << std::fixed << p[5] << " ";
+		
+		outfile << std::fixed << totalIrradiation[index] << std::endl;
+		
 		++index;
 	}
 
