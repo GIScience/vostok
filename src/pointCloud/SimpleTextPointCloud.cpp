@@ -74,7 +74,10 @@ void SimpleTextPointCloud::updateMetaFile() {
 	while (!sf.eof()) {
 		std::string line;
 
-		getline(sf, line);
+		// NOTE: Replaced getline with safeGetline from "myUtils.h" as an attempt to solve the file reading problem
+		safeGetline(sf, line);
+
+		//getline(sf, line);
 
 		std::vector<std::string> split = splitString(line, ' ');
 
@@ -122,7 +125,10 @@ std::vector<double> SimpleTextPointCloud::getNextPoint() {
 	}
 
 	std::string line;
-	getline(*mSourceFile, line);
+
+	// NOTE: Replaced getline with safeGetline from "myUtils.h" as an attempt to solve the file reading problem
+	safeGetline(*mSourceFile, line);
+	//getline(*mSourceFile, line);
 
 	++mLineNumber;
 
