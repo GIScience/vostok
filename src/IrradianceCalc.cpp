@@ -27,7 +27,12 @@
  *
  */
 IrradianceCalc::IrradianceCalc(const posdata& solPosData) : m_solposData(solPosData) {
-
+	
+	/* NOTE: Linke atmospheric turbidity coefficient is fixed to 3. This value is near 
+	the annual average for rural-city areas in 	Europe, i.e. mild climate in the northern 
+	hemispere (cf. https://grass.osgeo.org/grass77/manuals/r.sun.html ).
+	The factor must be adapted for other study areas, see reference literature.
+	*/
 	m_linke = 3;
 
 	m_elevEtr_rad = m_solposData.elevetr * (M_PI / 180);
