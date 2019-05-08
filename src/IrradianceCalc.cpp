@@ -28,7 +28,8 @@
  */
 IrradianceCalc::IrradianceCalc(const posdata& solPosData) : m_solposData(solPosData) {
 	
-	/* NOTE: Linke atmospheric turbidity coefficient is fixed to 3. This value is near 
+	/* 
+	NOTE: Linke atmospheric turbidity coefficient is fixed to 3. This value is near 
 	the annual average for rural-city areas in 	Europe, i.e. mild climate in the northern 
 	hemispere (cf. https://grass.osgeo.org/grass77/manuals/r.sun.html ).
 	The factor must be adapted for other study areas, see reference literature.
@@ -44,6 +45,20 @@ IrradianceCalc::IrradianceCalc(const posdata& solPosData) : m_solposData(solPosD
 	// ATTENTION: getIrradianceBeamNormal needs m_irrET to be computed first, so don't change the order here!
 	m_irrET = getIrradianceExtraTerrestrial(m_solposData.daynum);
 	m_irrBeamNormal = getIrradianceBeamNormal();
+	
+	/*
+	NOTE: in m_irrBeamNormal only the orthogonal, direct irradiance is calculated. 	This assumes *CLEAR SKY*.
+	Covered sky is not modelled at the moment, cloud-free sky is assumed.
+	For a correction of the modelling, measurements at meteo. stations could be used, by correcting based on 
+	the *ratio between overcast and clear sky values*. This must be done individually for every study area.
+	cf. Suri & Hofierka (2004): https://onlinelibrary.wiley.com/doi/pdf/10.1111/j.1467-9671.2004.00174.x
+	
+	TODO: The method to include diffuse irradiation is implemented in this function (see below):
+		double IrradianceCalc::getIrradiance(const std::vector<double>& p, bool illuminated)
+		https://github.com/GIScience/vostok/blob/16b7cff32f1603f7411906e41cb27bdb23699238/src/IrradianceCalc.cpp#L55
+	
+		!!! It is not used in the current version of VOSTOK !!!
+	*/
 
 }
 
