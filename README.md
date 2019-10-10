@@ -9,7 +9,12 @@ The current version of VOSTOK assumes clear sky conditions in the calculation of
 	
 The Linke atmospheric turbidity coefficient, which models the atmospheric absorption and scattering of solar radiation under clear sky, is currently hardcoded and [set to a fixed value of 3](https://github.com/GIScience/vostok/blob/803dcb7200942cc69d755a43d360673eb13290c5/src/IrradianceCalc.cpp#L37). This value is near the annual average for rural-city areas in Europe, i.e. mild climate in the northern hemisphere (cf. https://grass.osgeo.org/grass77/manuals/r.sun.html). The [factor must be adapted in the source code](https://github.com/GIScience/vostok/blob/803dcb7200942cc69d755a43d360673eb13290c5/src/IrradianceCalc.cpp#L37) for other study areas, see reference literature.
 
-## Building VOSTOK
+## Using VOSTOK
+### Precompiled 
+Pre-compiled binaries can be downloaded [here](https://heibox.uni-heidelberg.de/f/d87cad6c45b6465fb5d5/?dl=1).<br>
+For faster simulations building VOSTOK on the system is recommended.
+
+### Building VOSTOK
 In order to build VOSTOK, you need to have the GNU C++ compiler (g++), CMake (cmake) and any build system supported by CMake (e.g. GNU make, see [all supported generators](https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html)) installed on your computer. Optionally, VOSTOK may take advantage of OpenMP installed in your system.
 
 To build VOSTOK, create a build directory (CMake prefers out-of-source builds to not clutter up your sources with build artifacts), navigate to it and invoke cmake:
