@@ -57,9 +57,9 @@ An `example.sol` file:
 The meaning of each line entry is as follows:
 
     line 1	File with points used for shadowing
-    line 2  	Line format of shadow point cloud input file
+    line 2  Line format of shadow point cloud input file
     line 3	Point cloud for solar pot. calculation
-    line 4  	Line format of query point cloud input file
+    line 4  Line format of query point cloud input file
     line 5	Voxel size for shadow voxels
     line 6	Latitude of scene in deci degrees
     line 7	Longitude of scene in deci degrees
