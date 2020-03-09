@@ -74,7 +74,9 @@ The meaning of each line entry is as follows:
     line 16	Enable multi threading
     line 17	Minimum threshold for sun angle at horizon in degree (optional)
 
-The input file (line 1) contains the points which are used for shadowing the scene.
+The sun angle threshold (line 17) is an additional parameter, which can be useful if the extent of the shadow point cloud is limited closely to the area of interest. In this case, the sun shining from the side (i.e. from a low angle) at the edge of the shadow data can cause irradiation in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elserwhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
+
+The first input file (line 1) contains the points which are used for shadowing the scene.
 
 The second file (line 3) corresponds to the points for which the solar potential is calculated. The file must contain xyz coordinates and normals nxnynz, each in subsequent columns seperated by blanks.
 
