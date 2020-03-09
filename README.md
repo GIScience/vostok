@@ -162,6 +162,26 @@ The tool will first generate a .vostokmeta file and then run the solar potential
 
 The resulting file will contain the initial xyz coordinates, the nxnynz normals, and a new column with the calculated solar potential in Watt hours per square meter and day, summed up for the respective point.
 
+## How to cite
+
+Bechtold, S. & Höfle, B. (2020): VOSTOK - The Voxel Octree Solar Toolkit. DOI: Coming soon.
+
+If you use VOSTOK in your work, please cite:
+
+```
+@data{data/tbd,
+author = {Bechtold, Sebastian and H\"ofle, Bernhard},
+publisher = {heiDATA},
+title = "{VOSTOK - The Voxel Octree Solar Toolkit}",
+year = {2020},
+version = {V1},
+doi = {},
+url = {https://doi.org/}
+}
+```
+
+We are happy if you are using HELIOS in your work - [let us know](https://www.uni-heidelberg.de/3dgeo)!
+
 ## Videos on 3D Solar Potential Analysis using VOSTOK
 * [Simulation of sunshine in forests using dense 3D point clouds](https://youtu.be/l-_EoMN5If8)
 * [3D Solar Potential computed in 3D Point Cloud with VOSTOK](https://youtu.be/4vqcFjbzJ8Q)
@@ -179,6 +199,6 @@ Höfle, B. (2012): [Nachhaltige Stromerzeugung - Geoinformationen optimieren Sol
 
 Jochem, A., Höfle, B. & Rutzinger, M. (2011): Extraction of Vertical Walls from Mobile Laser Scanning Data for Solar Potential Assessment. Remote Sensing. Vol. 3 (4), pp. 650-667. DOI: [10.3390/rs3030650](https://doi.org/10.3390/rs3030650).
 
-Jochem, A., Höfle, B., Rutzinger, M. & Pfeifer, N. (2009): [Automatic roof plane detection and analysis in airborne LIDAR point clouds for solar potential assessment](https://www.researchgate.net/publication/223138341_Automatic_Roof_Plane_Detection_and_Analysis_in_Airborne_Lidar_Point_Clouds_for_Solar_Potential_Assessment). Sensors. Vol. 9 (7), pp. 5241-5262.
+Jochem, A., Höfle, B., Rutzinger, M. & Pfeifer, N. (2009): Automatic roof plane detection and analysis in airborne LIDAR point clouds for solar potential assessment. Sensors. Vol. 9 (7), pp. 5241-5262. DOI: [10.3390/s90705241](https://doi.org/10.3390/s90705241).
 
 Jochem, A., Höfle, B., Hollaus, M. & Rutzinger, M. (2009): [Object detection in airborne LIDAR data for improved solar radiation modeling in urban areas](https://www.geog.uni-heidelberg.de/md/chemgeo/geog/3dgeo/jochem_et_al_iaprs_paris_2009.pdf). In: International Archives of Photogrammetry, Remote Sensing and Spatial Information Sciences. Vol. XXXVIII(Part 3/W8), pp. 1-6.
