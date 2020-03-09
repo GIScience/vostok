@@ -52,13 +52,14 @@ An `example.sol` file:
     1
     example_solPot_January2016.xyz
     1
+    30.0
 
 The meaning of each line entry is as follows:
 
     line 1	File with points used for shadowing
-    line 2  line format of shadow point cloud input file
+    line 2  	Line format of shadow point cloud input file
     line 3	Point cloud for solar pot. calculation
-    line 4  line format of query point cloud input file
+    line 4  	Line format of query point cloud input file
     line 5	Voxel size for shadow voxels
     line 6	Latitude of scene in deci degrees
     line 7	Longitude of scene in deci degrees
@@ -71,6 +72,7 @@ The meaning of each line entry is as follows:
     line 14	Enable shadowing
     line 15	Output file name
     line 16	Enable multi threading
+    line 17	Minimum threshold for sun angle at horizon in degree (optional)
 
 The input file (line 1) contains the points which are used for shadowing the scene.
 
@@ -115,6 +117,7 @@ The tool will first generate a .vostokmeta file and then run the solar potential
 
     Shadow mode:                  1
     Shadow voxel size:            1 m
+    Min. solar elevation angle:   30.0 degrees
     ------------------------------------------------------
 
 
