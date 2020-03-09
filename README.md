@@ -84,14 +84,14 @@ Please not the following restrictions regarding the shadow and query point cloud
 
 2. The query point cloud *MUST* have a normal vector specified for each point. For the shadow point cloud, normals are not required.
 
-The sun angle threshold (line 17) is an additional parameter, which can be useful if the extent of the shadow point cloud is limited closely to the area of interest. In this case, the sun shining from the side (i.e. from a low angle) at the edge of the shadow data can cause irradiation in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elserwhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
-
 `example.xyz` file with four points:
 
     78.750000 344.250000 40.615002 0.114376 0.220988 0.968547
     79.250000 344.250000 40.542000 0.063874 0.249720 0.966209
     79.750000 344.250000 40.520000 -0.196111 -0.040646 0.979739
     80.250000 344.250000 40.956001 -0.187723 -0.375608 0.907568
+
+The sun angle threshold (line 17) is an additional parameter, which can be useful if the extent of the shadow point cloud is limited closely to the area of interest. In this case, the sun shining from the side (i.e. from a low angle) at the edge of the shadow data can cause irradiation in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elserwhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
 
 If the .sol file is adjusted and the input files are provided, run VOSTOK via
 
