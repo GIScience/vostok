@@ -159,9 +159,21 @@ int main(int argc, char* argv[]) {
 					std::vector<double>& p = queryPointsCache[ii];
 
 					bool illuminated = true;
+					double elevation_deg = solpos.elevref;
 
-					if (cfg.m_computeShadows > 0) {
-						illuminated = shadowCalc.computeShadow(solpos, p);
+					//std::cout << elevation_deg << " " << solpos.hour << std::endl;
+
+					//check solar angle first
+					if (elevation_deg >= cfg.m_minSunAngle)
+					{
+
+						if (cfg.m_computeShadows > 0) {
+							illuminated = shadowCalc.computeShadow(solpos, p);
+						}
+					}
+					else { 
+						illuminated = false;
+						//std::cout << "Sun too low: " << solpos.elevref << " < " << cfg.m_minSunAngle << std::endl;
 					}
 
 
@@ -182,22 +194,28 @@ int main(int argc, char* argv[]) {
 					std::vector<double> p = queryPoints.getNextPoint();
 
 					bool illuminated = true;
+					double elevation_deg = solpos.elevref;
+					if (elevation_deg >= cfg.m_minSunAngle)
+					{
 
-					if (cfg.m_computeShadows > 0) {
+						if (cfg.m_computeShadows > 0) {
 
-						illuminated = shadowCalc.computeShadow(solpos, p);
+							illuminated = shadowCalc.computeShadow(solpos, p);
 
-						if (cfg.m_computeShadows > 1) {
+							if (cfg.m_computeShadows > 1) {
 
-							if (!shadowOutfile.good()) {
-								shadowOutfile.open(shadowOutfilePath.str().c_str());
-								shadowOutfile << std::setprecision(3);
+								if (!shadowOutfile.good()) {
+									shadowOutfile.open(shadowOutfilePath.str().c_str());
+									shadowOutfile << std::setprecision(3);
+								}
+
+								shadowOutfile << std::fixed << p[0] << " " << std::fixed << p[1] << " " << std::fixed << p[2] << " " << illuminated << std::endl;
 							}
-
-							shadowOutfile << std::fixed << p[0] << " " << std::fixed << p[1] << " " << std::fixed << p[2] << " " << illuminated << std::endl;
 						}
 					}
-
+					else {
+						illuminated = false;
+					}
 					// Compute irradiance for current time step (energy for moment with no time unit):
 					double irr = irrCalc.getIrradiance(p, illuminated);
 

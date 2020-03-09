@@ -128,6 +128,7 @@ std::vector<double> SimpleTextPointCloud::getNextPoint() {
 
 	// NOTE: Replaced getline with safeGetline from "myUtils.h" as an attempt to solve the file reading problem
 	safeGetline(*mSourceFile, line);
+	
 	//getline(*mSourceFile, line);
 
 	++mLineNumber;

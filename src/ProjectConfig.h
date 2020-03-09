@@ -43,6 +43,9 @@ public:
 
 	// Different flags:
 	int m_computeShadows;
+    
+    //min. solar elevation angle
+    double m_minSunAngle;
 
 };
 

@@ -22,6 +22,7 @@ ProjectConfig::ProjectConfig() {
 	m_lon = 0;
 	m_lat = 0;
 	m_openMp = 0;
+    m_minSunAngle = -99.9;
 }
 
 ProjectConfig::~ProjectConfig() {
@@ -80,9 +81,20 @@ bool ProjectConfig::loadFromFile(std::string projectFilePath) {
 
 	safeGetline(projectFile, mOutputFilePath);
 
-
 	safeGetline(projectFile, temp);
 	m_openMp = atoi(temp.c_str());
+    
+    //added 2020 by BH
+	safeGetline(projectFile, temp);
+	if (temp.empty())
+	{
+		m_minSunAngle = -99.9;
+	}
+	else {
+		m_minSunAngle = atof(temp.c_str());
+	}
+	//std::exit(0);
+	
 
 
 	if (projectFileFolderPath != projectFilePath) {
@@ -125,6 +137,7 @@ std::string ProjectConfig::getSettingsString() {
 
 	convert << "Shadow mode:                  " << m_computeShadows << std::endl;
 	convert << "Shadow voxel size:            " << mVoxelSize << " m" << std::endl;
+    convert << "Min. solar elevation angle:   " << m_minSunAngle << " degrees" << std::endl;
 	convert << "------------------------------------------------------" << std::endl;
 
 	result = convert.str();

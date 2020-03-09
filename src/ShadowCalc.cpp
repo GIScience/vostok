@@ -15,6 +15,7 @@
 #include <vector>
 #include "OctreeRaycaster.h"
 
+
 ShadowCalc::ShadowCalc(AbstractPointCloud& shadowCloud, double voxelSize) : m_octree(shadowCloud.getMin(), shadowCloud.getMax(), voxelSize) {
 
 	//########## BEGIN Read input file for second time to build octree #################
@@ -58,8 +59,8 @@ bool ShadowCalc::computeShadow(const posdata& solposData, const std::vector<doub
 
 	double azimuth_deg = solposData.azim;
 	double elevation_deg = solposData.elevref;
-
-	if (elevation_deg < 0) {
+    
+	if (elevation_deg < 0 ) {
 		return true;
 	}
 
