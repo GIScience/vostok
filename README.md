@@ -165,7 +165,15 @@ The tool will first generate a .vostokmeta file and then run the solar potential
 
 The resulting file will contain the initial xyz coordinates, the nxnynz normals, and a new column with the calculated solar potential in Watt hours per square meter and day, summed up for the respective point.
 
-## How to cite
+## Authorship
+
+3DGeo Research Group  
+Institute of Geography  
+Heidelberg University
+
+[http://www.uni-heidelberg.de/3dgeo](http://www.uni-heidelberg.de/3dgeo)
+
+### How to cite
 
 Bechtold, S. & Höfle, B. (2020): VOSTOK - The Voxel Octree Solar Toolkit. DOI: Coming soon.
 
@@ -205,3 +213,7 @@ Jochem, A., Höfle, B. & Rutzinger, M. (2011): Extraction of Vertical Walls from
 Jochem, A., Höfle, B., Rutzinger, M. & Pfeifer, N. (2009): Automatic roof plane detection and analysis in airborne LIDAR point clouds for solar potential assessment. Sensors. Vol. 9 (7), pp. 5241-5262. DOI: [10.3390/s90705241](https://doi.org/10.3390/s90705241).
 
 Jochem, A., Höfle, B., Hollaus, M. & Rutzinger, M. (2009): [Object detection in airborne LIDAR data for improved solar radiation modeling in urban areas](https://www.geog.uni-heidelberg.de/md/chemgeo/geog/3dgeo/jochem_et_al_iaprs_paris_2009.pdf). In: International Archives of Photogrammetry, Remote Sensing and Spatial Information Sciences. Vol. XXXVIII(Part 3/W8), pp. 1-6.
+
+## License
+
+See [LICENSE.md](LICENSE.md).
