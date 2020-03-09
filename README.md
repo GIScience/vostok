@@ -1,6 +1,8 @@
 # VOSTOK - The Voxel Octree Solar Toolkit
 VOSTOK is a command-line tool to compute a detailed model of incoming solar radiation distribution on a patch of land, including structures like buildings and vegetation, represented by a 3D point cloud data set. "Vostok" is also the russian word for "east" - the direction in which the sun rises.
 
+## General
+
 The program is written in C++ and makes use of the "SOLPOS.H" library to compute the angular position of the sun in the sky for a given location on earth and a given moment in time. SOLPOS.H was created by the U.S. Department of Energy National Renewable Energy Laboratory ( http://rredc.nrel.gov/solar/codesandalgorithms/solpos/ ) and released under the public domain.
 
 VOSTOK works by transforming the input point cloud into a voxel volume with configurable resolution (voxel size). The voxels are represented as a sparse octree, and incoming sunlight and shadowing effects are simulated by raycasting on the voxel octree geometry. Raycasting is parallelized with OpenMP to make full use of multi-core processors.
@@ -159,3 +161,24 @@ The tool will first generate a .vostokmeta file and then run the solar potential
     Day  31   Sunrise: 07:31   Sunset:  16:47
 
 The resulting file will contain the initial xyz coordinates, the nxnynz normals, and a new column with the calculated solar potential in Watt hours per square meter and day, summed up for the respective point.
+
+## Videos on 3D Solar Potential Analysis using VOSTOK
+* [Simulation of sunshine in forests using dense 3D point clouds](https://youtu.be/l-_EoMN5If8)
+* [3D Solar Potential computed in 3D Point Cloud with VOSTOK](https://youtu.be/4vqcFjbzJ8Q)
+* [3D solar potential assessment for renewable energy supply (with subtitles)](https://youtu.be/VAiFMgNcvxM)
+* [3D solar potential assessment for renewable energy supply](https://youtu.be/TaCUaG5XEas)
+
+## Relevant Publications
+Lin, T.-P., Lin, F.-Y., Wu, P.-R., Hämmerle, M., Höfle, B., Bechtold, S., Hwang, R.-L. & Chen, Y.-C. (2017): Multiscale Analysis and Reduction Measures of Urban Carbon Dioxide Budget Based on Building Energy Consumption. Energy and Buildings. Vol. 153, pp. 356-367. DOI: [10.1016/j.enbuild.2017.07.084](https://doi.org/10.1016/j.enbuild.2017.07.084).
+
+Gündra, H., Barron, C., Henrichs, T., Jäger, S., Höfle, B., Marx, S., Peters, R., Reimer, A. & Zipf, A. (2015): [Standortkataster für Lärmschutzanlagen mit Ertragsprognose für potenzielle Photovoltaik-Anwendungen](https://www.geog.uni-heidelberg.de/md/chemgeo/geog/3dgeo/guendra_et_al_2015_bast_v252.pdf). Berichte der Bundesanstalt für Straßenwesen (BASt), Heft V 252, pp. 1-48. ISBN: 978-3-95606-150-9.
+
+Regvat, R., Hämmerle, M., Marx, S., Koenig, K. & Höfle, B. (2014): [3D-punktbasierte Solarpotenzialanalyse für Gebäudefassaden mit freien Geodaten](https://www.geog.uni-heidelberg.de/md/chemgeo/geog/3dgeo/regvat_et_al_2014_agit.pdf). In: Strobl, J., Blaschke, T., Griesebner, G. & Zagel, B. Angewandte Geoinformatik 2014, pp. 196-204. Wichmann.
+
+Höfle, B. (2012): [Nachhaltige Stromerzeugung - Geoinformationen optimieren Solaranlagen](https://www.geog.uni-heidelberg.de/md/chemgeo/geog/3dgeo/hoefle_2012_ruperto_carola.pdf). In: Ruperto Carola Forschungsmagazin. Vol. 1/2012, pp. 44-46.
+
+Jochem, A., Höfle, B. & Rutzinger, M. (2011): Extraction of Vertical Walls from Mobile Laser Scanning Data for Solar Potential Assessment. Remote Sensing. Vol. 3 (4), pp. 650-667. DOI: [10.3390/rs3030650](https://doi.org/10.3390/rs3030650).
+
+Jochem, A., Höfle, B., Rutzinger, M. & Pfeifer, N. (2009): [Automatic roof plane detection and analysis in airborne LIDAR point clouds for solar potential assessment](https://www.researchgate.net/publication/223138341_Automatic_Roof_Plane_Detection_and_Analysis_in_Airborne_Lidar_Point_Clouds_for_Solar_Potential_Assessment). Sensors. Vol. 9 (7), pp. 5241-5262.
+
+Jochem, A., Höfle, B., Hollaus, M. & Rutzinger, M. (2009): [Object detection in airborne LIDAR data for improved solar radiation modeling in urban areas](https://www.geog.uni-heidelberg.de/md/chemgeo/geog/3dgeo/jochem_et_al_iaprs_paris_2009.pdf). In: International Archives of Photogrammetry, Remote Sensing and Spatial Information Sciences. Vol. XXXVIII(Part 3/W8), pp. 1-6.
