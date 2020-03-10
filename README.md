@@ -63,7 +63,7 @@ The meaning of each line entry is as follows:
     line 5	Voxel size for shadow voxels [m]
     line 6	Latitude of scene in decimal degrees
     line 7	Longitude of scene in decimal degrees
-    line 8	Time zone (according to SOLPOS [timezone](https://www.nrel.gov/grid/solar-resource/solpos.html))
+    line 8	Time zone (according to SOLPOS timezone: https://www.nrel.gov/grid/solar-resource/solpos.html)
     line 9	Year of calculation
     line 10	First day of calculation
     line 11	Last day of calculation
@@ -91,7 +91,7 @@ Please not the following restrictions regarding the shadow and query point cloud
     79.750000 344.250000 40.520000 -0.196111 -0.040646 0.979739
     80.250000 344.250000 40.956001 -0.187723 -0.375608 0.907568
 
-The threshold on Solar elevation angle as degrees from horizon (line 17) is an additional parameter (SOLPOS variable [elevref] (https://www.nrel.gov/grid/solar-resource/solpos.html)), which can be useful if the extent of the shadow point cloud is limited closely to the extent of the computation points. In this case, the sun illuminates from the side (i.e. from a low angle) at the edge of the shadow data can cause illumination in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elserwhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
+The threshold on Solar elevation angle as degrees from horizon (line 17) is an additional parameter (SOLPOS variable [elevref](https://www.nrel.gov/grid/solar-resource/solpos.html)), which can be useful if the extent of the shadow point cloud is limited closely to the extent of the computation points. In this case, the sun illuminates from the side (i.e. from a low angle) at the edge of the shadow data can cause illumination in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elserwhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
 
 If the .sol file is adjusted and the input files are provided, run VOSTOK via
 
