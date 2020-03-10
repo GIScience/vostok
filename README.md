@@ -80,7 +80,7 @@ The second file (line 3) corresponds to the points for which the solar potential
 
 Please not the following restrictions regarding the shadow and query point cloud input file formats:
 
-1. Although you can specify the line formats of the input files, the indices of the individual values for point position and normal vector are still *fixed* in the current version of VOSTOK. This means that *the first three values (position 1 to 3) will always be interpreted as POINT POSITION and the following three values (position 4 to 6) will always be inrepreted as the NORMAL VECTOR*.
+1. Although you can specify the line formats of the input files, the indices of the individual values for point position and normal vector are still *fixed* in the current version of VOSTOK. This means that *the first three values (position 1 to 3) will always be interpreted as POINT POSITION and the following three values (position 4 to 6) will always be interpreted as the NORMAL VECTOR*.
 
 2. The query point cloud *MUST* have a normal vector specified for each point. For the shadow point cloud, normals are not required.
 
@@ -195,7 +195,7 @@ url = {https://doi.org/10.11588/data/QNA02B}
 }
 ```
 
-We are happy if you are using HELIOS in your work - [let us know](https://www.uni-heidelberg.de/3dgeo)!
+We are happy if you are using VOSTOK in your work - [let us know](https://www.uni-heidelberg.de/3dgeo)!
 
 ## Videos on 3D Solar Potential Analysis using VOSTOK
 * [Simulation of sunshine in forests using dense 3D point clouds](https://youtu.be/l-_EoMN5If8)
