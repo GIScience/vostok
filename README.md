@@ -3,18 +3,18 @@ VOSTOK is a command-line tool to compute a detailed model of incoming solar radi
 
 ## General
 
-The program is written in C++ and makes use of the "SOLPOS.H" library to compute the angular position of the sun in the sky for a given location on earth and a given moment in time. SOLPOS.H was created by the U.S. Department of Energy National Renewable Energy Laboratory ( http://rredc.nrel.gov/solar/codesandalgorithms/solpos/ ) and released under the public domain.
+The program is written in C++ and makes use of the "SOLPOS.H" library to compute the angular position of the sun in the sky for a given location on Earth and a given moment in time. SOLPOS.H was created by the U.S. Department of Energy National Renewable Energy Laboratory ( http://rredc.nrel.gov/solar/codesandalgorithms/solpos/ ) and released under the public domain.
 
-VOSTOK works by transforming the input point cloud into a voxel volume with configurable resolution (voxel size). The voxels are represented as a sparse octree, and incoming sunlight and shadowing effects are simulated by raycasting on the voxel octree geometry. Raycasting is parallelized with OpenMP to make full use of multi-core processors.
+VOSTOK can use any 3D point cloud (e.g. LIDAR, SfM) as XYZ-locations (with surface normal vector information) for which the incoming sunlight shall be computed (*the computation points*). VOSTOK works by transforming a second input point cloud (*the shadow points*) into a voxel volume with configurable resolution (voxel size). The computation and shadow points can be the same point cloud. The occupied voxels determine the shadow casting over time for each computation point. The voxels are represented as a sparse octree, and incoming sunlight and shadowing effects are simulated by raycasting on the voxel octree geometry. Transmission of voxels is currently not considered. Raycasting is parallelized with OpenMP to make full use of multi-core processors.
 
-The current version of VOSTOK assumes clear sky conditions in the calculation of solar irradiance, cloud coverage is not considered. To account for overcast conditions, a correction of the modelled absolute values computed by VOSTOK needs to be done by using measurements at meteorological stations to derive the ratio between overcast and clear sky values at the specific geographic location (e.g. [Suri & Hofierka 2004](https://doi.org/10.1111/j.1467-9671.2004.00174.x)). This must be done individually for every study area.
+The current version of VOSTOK assumes clear sky conditions in the calculation of solar irradiance, cloud coverage is not considered. To account for overcast conditions, a correction of the modelled absolute values computed by VOSTOK needs to be done by using measurements at meteorological stations to derive the ratio between overcast and clear sky values at the specific geographic location (e.g. [Suri & Hofierka 2004](https://doi.org/10.1111/j.1467-9671.2004.00174.x)). This must be done individually for each study area.
 	
-The Linke atmospheric turbidity coefficient, which models the atmospheric absorption and scattering of solar radiation under clear sky, is currently hardcoded and [set to a fixed value of 3](https://github.com/GIScience/vostok/blob/803dcb7200942cc69d755a43d360673eb13290c5/src/IrradianceCalc.cpp#L37). This value is near the annual average for rural-city areas in Europe, i.e. mild climate in the northern hemisphere (cf. https://grass.osgeo.org/grass77/manuals/r.sun.html). The [factor must be adapted in the source code](https://github.com/GIScience/vostok/blob/803dcb7200942cc69d755a43d360673eb13290c5/src/IrradianceCalc.cpp#L37) for other study areas, see reference literature.
+The Linke atmospheric turbidity coefficient, which models the atmospheric absorption and scattering of solar radiation under clear sky, is currently hardcoded and [set to a fixed value of 3](https://github.com/GIScience/vostok/blob/803dcb7200942cc69d755a43d360673eb13290c5/src/IrradianceCalc.cpp#L37). This value is near the annual average for rural-city areas in Europe, i.e. mild climate in the Northern hemisphere (cf. https://grass.osgeo.org/grass77/manuals/r.sun.html). The [factor must be adapted in the source code](https://github.com/GIScience/vostok/blob/803dcb7200942cc69d755a43d360673eb13290c5/src/IrradianceCalc.cpp#L37) for other study areas, see reference literature.
 
 ## Using VOSTOK
 ### Precompiled 
 Pre-compiled binaries can be downloaded [here](https://heibox.uni-heidelberg.de/f/d87cad6c45b6465fb5d5/?dl=1).<br>
-For faster simulations building VOSTOK on the system is recommended.
+For faster simulations compiling VOSTOK on your specific system is recommended.
 
 ### Building VOSTOK
 In order to build VOSTOK, you need to have the GNU C++ compiler (g++), CMake (cmake) and any build system supported by CMake (e.g. GNU make, see [all supported generators](https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html)) installed on your computer. Optionally, VOSTOK may take advantage of OpenMP installed in your system.
@@ -57,26 +57,26 @@ An `example.sol` file:
 The meaning of each line entry is as follows:
 
     line 1	File with points used for shadowing
-    line 2  Line format of shadow point cloud input file
+    line 2	Line format of shadow point cloud input file
     line 3	Point cloud for solar pot. calculation
-    line 4  Line format of query point cloud input file
-    line 5	Voxel size for shadow voxels
-    line 6	Latitude of scene in deci degrees
-    line 7	Longitude of scene in deci degrees
-    line 8	Time zone
+    line 4	Line format of query point cloud input file
+    line 5	Voxel size for shadow voxels [m]
+    line 6	Latitude of scene in decimal degrees
+    line 7	Longitude of scene in decimal degrees
+    line 8	Time zone (according to SOLPOS [timezone](https://www.nrel.gov/grid/solar-resource/solpos.html))
     line 9	Year of calculation
     line 10	First day of calculation
     line 11	Last day of calculation
-    line 12	Day step
-    line 13	Minutes step
-    line 14	Enable shadowing
+    line 12	Day step [days]
+    line 13	Minutes step [min]
+    line 14	Enable shadowing (0=ignore shadows, 1=compute shadows, 2=output shadow clouds)
     line 15	Output file name
-    line 16	Enable multi threading
-    line 17	Minimum threshold for sun angle at horizon in degree (optional)
+    line 16	Enable multi threading (0=single-threading, 1=enable multi-threading)
+    line 17	Minimum threshold for Solar elevation angle (refracted), degrees from horizon (optional)
 
 The first input file (line 1) contains the points which are used for shadowing the scene.
 
-The second file (line 3) corresponds to the points for which the solar potential is calculated. The file must contain xyz coordinates and normals nxnynz, each in subsequent columns seperated by blanks.
+The second file (line 3) corresponds to the points for which the solar potential is calculated. The file must contain xyz coordinates and normals nxnynz, each in subsequent columns separated by blanks.
 
 Please not the following restrictions regarding the shadow and query point cloud input file formats:
 
@@ -91,7 +91,7 @@ Please not the following restrictions regarding the shadow and query point cloud
     79.750000 344.250000 40.520000 -0.196111 -0.040646 0.979739
     80.250000 344.250000 40.956001 -0.187723 -0.375608 0.907568
 
-The sun angle threshold (line 17) is an additional parameter, which can be useful if the extent of the shadow point cloud is limited closely to the area of interest. In this case, the sun shining from the side (i.e. from a low angle) at the edge of the shadow data can cause irradiation in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elserwhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
+The threshold on Solar elevation angle as degrees from horizon (line 17) is an additional parameter (SOLPOS variable [elevref] (https://www.nrel.gov/grid/solar-resource/solpos.html)), which can be useful if the extent of the shadow point cloud is limited closely to the extent of the computation points. In this case, the sun illuminates from the side (i.e. from a low angle) at the edge of the shadow data can cause illumination in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elserwhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
 
 If the .sol file is adjusted and the input files are provided, run VOSTOK via
 
