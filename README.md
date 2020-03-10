@@ -1,5 +1,5 @@
 # VOSTOK - The Voxel Octree Solar Toolkit
-VOSTOK is a command-line tool to compute a detailed model of incoming solar radiation distribution on a patch of land, including structures like buildings and vegetation, represented by a 3D point cloud data set. "Vostok" is also the russian word for "east" - the direction in which the sun rises.
+VOSTOK is a command-line tool to compute a detailed model of incoming solar radiation distribution on a patch of land, including structures like buildings and vegetation, represented by a 3D point cloud data set. "Vostok" is also the Russian word for "east" - the direction in which the sun rises.
 
 ## General
 
@@ -13,7 +13,7 @@ The Linke atmospheric turbidity coefficient, which models the atmospheric absorp
 
 ## Using VOSTOK
 ### Precompiled 
-Pre-compiled binaries can be downloaded [here](https://heibox.uni-heidelberg.de/f/d87cad6c45b6465fb5d5/?dl=1).<br>
+Pre-compiled binaries can be downloaded [here](https://heibox.uni-heidelberg.de/f/d0c19af7ae1f4aa9854e/?dl=1).<br>
 For faster simulations compiling VOSTOK on your specific system is recommended.
 
 ### Building VOSTOK
@@ -91,7 +91,7 @@ Please not the following restrictions regarding the shadow and query point cloud
     79.750000 344.250000 40.520000 -0.196111 -0.040646 0.979739
     80.250000 344.250000 40.956001 -0.187723 -0.375608 0.907568
 
-The threshold on Solar elevation angle as degrees from horizon (line 17) is an additional parameter (SOLPOS variable [elevref](https://www.nrel.gov/grid/solar-resource/solpos.html)), which can be useful if the extent of the shadow point cloud is limited closely to the extent of the computation points. In this case, the sun illuminates from the side (i.e. from a low angle) at the edge of the shadow data can cause illumination in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elserwhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
+The threshold on Solar elevation angle as degrees from horizon (line 17) is an additional parameter (SOLPOS variable [elevref](https://www.nrel.gov/grid/solar-resource/solpos.html)), which can be useful if the extent of the shadow point cloud is limited closely to the extent of the computation points. In this case, the sun illuminates from the side (i.e. from a low angle) at the edge of the shadow data and can cause illumination in areas which in reality would be shadowed by their surroundings. The effect occurs for forest plot data, but may be applicable elsewhere, too. If not specified, the parameter value is set below the horizon and thereby disregarded (default value: -99.9).
 
 If the .sol file is adjusted and the input files are provided, run VOSTOK via
 
@@ -175,21 +175,23 @@ Heidelberg University
 
 [http://www.uni-heidelberg.de/3dgeo](http://www.uni-heidelberg.de/3dgeo)
 
+Source code repository: [https://github.com/GIScience/vostok](https://github.com/GIScience/vostok)
+
 ### How to cite
 
-Bechtold, S. & Höfle, B. (2020): VOSTOK - The Voxel Octree Solar Toolkit. DOI: Coming soon.
+Bechtold, S. & Höfle, B. (2020): VOSTOK - The Voxel Octree Solar Toolkit. heiDATA, V1. DOI: [10.11588/data/QNA02B](https://doi.org/10.11588/data/QNA02B).
 
 If you use VOSTOK in your work, please cite:
 
 ```
-@data{data/tbd,
+@data{data/QNA02B,
 author = {Bechtold, Sebastian and H\"ofle, Bernhard},
 publisher = {heiDATA},
 title = "{VOSTOK - The Voxel Octree Solar Toolkit}",
 year = {2020},
 version = {V1},
-doi = {},
-url = {https://doi.org/}
+doi = {10.11588/data/QNA02B},
+url = {https://doi.org/10.11588/data/QNA02B}
 }
 ```
 
@@ -217,5 +219,4 @@ Jochem, A., Höfle, B., Rutzinger, M. & Pfeifer, N. (2009): Automatic roof plane
 Jochem, A., Höfle, B., Hollaus, M. & Rutzinger, M. (2009): [Object detection in airborne LIDAR data for improved solar radiation modeling in urban areas](https://www.geog.uni-heidelberg.de/md/chemgeo/geog/3dgeo/jochem_et_al_iaprs_paris_2009.pdf). In: International Archives of Photogrammetry, Remote Sensing and Spatial Information Sciences. Vol. XXXVIII(Part 3/W8), pp. 1-6.
 
 ## License
-
 See [LICENSE.md](LICENSE.md).
