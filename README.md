@@ -204,6 +204,8 @@ We are happy if you are using VOSTOK in your work - [let us know](https://www.un
 * [3D solar potential assessment for renewable energy supply](https://youtu.be/TaCUaG5XEas)
 
 ## Relevant Publications
+Foshag, K., Aeschbach, N., Höfle, B., Winkler, R., Siegmund, A. & Aeschbach, W. (2020): Viability of public spaces in cities under increasing heat: A transdisciplinary approach. Sustainable Cities and Society. Vol. 59, pp. 102215. DOI: [10.1016/10.1016/j.scs.2020.102215](https://doi.org/10.1016/j.scs.2020.102215).
+
 Lin, T.-P., Lin, F.-Y., Wu, P.-R., Hämmerle, M., Höfle, B., Bechtold, S., Hwang, R.-L. & Chen, Y.-C. (2017): Multiscale Analysis and Reduction Measures of Urban Carbon Dioxide Budget Based on Building Energy Consumption. Energy and Buildings. Vol. 153, pp. 356-367. DOI: [10.1016/j.enbuild.2017.07.084](https://doi.org/10.1016/j.enbuild.2017.07.084).
 
 Gündra, H., Barron, C., Henrichs, T., Jäger, S., Höfle, B., Marx, S., Peters, R., Reimer, A. & Zipf, A. (2015): [Standortkataster für Lärmschutzanlagen mit Ertragsprognose für potenzielle Photovoltaik-Anwendungen](https://www.geog.uni-heidelberg.de/md/chemgeo/geog/3dgeo/guendra_et_al_2015_bast_v252.pdf). Berichte der Bundesanstalt für Straßenwesen (BASt), Heft V 252, pp. 1-48. ISBN: 978-3-95606-150-9.
