@@ -1,3 +1,5 @@
+Please note: This repository has been migrated to https://github.com/3dgeo-heidelberg/vostok
+
 # VOSTOK - The Voxel Octree Solar Toolkit
 VOSTOK is a command-line tool to compute a detailed model of incoming solar radiation distribution on a patch of land, including structures like buildings and vegetation, represented by a 3D point cloud data set. "Vostok" is also the Russian word for "east" - the direction in which the sun rises.
 
